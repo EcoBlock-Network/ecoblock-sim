@@ -1,6 +1,6 @@
 use std::collections::{HashSet, VecDeque};
 use ecoblock_storage::tangle::block::TangleBlock;
-use std::sync::{Arc, Mutex};
+use std::sync::Arc;
 
 use crate::simulation::scenario::SimulationScenario;
 

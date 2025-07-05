@@ -1,0 +1,61 @@
+warning: unused variable: `e`
+  --> /Users/malohenry/Projects/EcoBlock/libs/ecoblock-crypto/src/signature/ed25519.rs:12:17
+   |
+12 |             Err(e) => {
+   |                 ^ help: if this is intentional, prefix it with an underscore: `_e`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: unused variable: `e`
+  --> /Users/malohenry/Projects/EcoBlock/libs/ecoblock-crypto/src/signature/ed25519.rs:19:17
+   |
+19 |             Err(e) => {
+   |                 ^ help: if this is intentional, prefix it with an underscore: `_e`
+
+warning: unused variable: `e`
+  --> /Users/malohenry/Projects/EcoBlock/libs/ecoblock-crypto/src/signature/ed25519.rs:40:17
+   |
+40 |             Err(e) => {
+   |                 ^ help: if this is intentional, prefix it with an underscore: `_e`
+
+warning: unused variable: `e`
+  --> /Users/malohenry/Projects/EcoBlock/libs/ecoblock-crypto/src/signature/ed25519.rs:47:17
+   |
+47 |             Err(e) => {
+   |                 ^ help: if this is intentional, prefix it with an underscore: `_e`
+
+warning: `ecoblock_crypto` (lib) generated 4 warnings
+warning: unused import: `ecoblock_crypto::signature::Signature`
+ --> /Users/malohenry/Projects/EcoBlock/libs/ecoblock-storage/src/tangle/storage.rs:7:5
+  |
+7 | use ecoblock_crypto::signature::Signature;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused import: `hex`
+ --> /Users/malohenry/Projects/EcoBlock/libs/ecoblock-storage/src/tangle/storage.rs:8:5
+  |
+8 | use hex;
+  |     ^^^
+
+warning: `ecoblock-storage` (lib) generated 2 warnings (run `cargo fix --lib -p ecoblock-storage` to apply 2 suggestions)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.02s
+     Running `target/debug/examples/run_simulation`
+🎬 Running simulation: Linear topology
+   📡 Propagate: 394bc5a72403059f83136b12cc7aaa47ecaad74521d2518cc7c0e64f87e45dab
+   📦 NODE A: Received block
+   📡 Propagate: 394bc5a72403059f83136b12cc7aaa47ecaad74521d2518cc7c0e64f87e45dab
+   📦 NODE B: Received block
+   📡 Propagate: 394bc5a72403059f83136b12cc7aaa47ecaad74521d2518cc7c0e64f87e45dab
+   📦 NODE C: Received block
+   📊 Nodes reached: 3/3
+✅ Simulation complete: Linear topology
+---------------------------\n
+🎬 Running simulation: Ring topology
+   📡 Propagate: 394bc5a72403059f83136b12cc7aaa47ecaad74521d2518cc7c0e64f87e45dab
+   📦 NODE A: Received block
+   📡 Propagate: 394bc5a72403059f83136b12cc7aaa47ecaad74521d2518cc7c0e64f87e45dab
+   📦 NODE B: Received block
+   📡 Propagate: 394bc5a72403059f83136b12cc7aaa47ecaad74521d2518cc7c0e64f87e45dab
+   📦 NODE C: Received block
