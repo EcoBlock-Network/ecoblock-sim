@@ -4,3 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+ecoblock-gossip = { path = "../ecoblock-gossip" }
+ecoblock_mesh   = { path = "../ecoblock-mesh" }
+ecoblock_core = { path = "../ecoblock-core" }
+ecoblock-storage = { path = "../ecoblock-storage" }
+ecoblock_crypto = { path = "../ecoblock-crypto" }
