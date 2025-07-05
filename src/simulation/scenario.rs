@@ -1,4 +1,4 @@
-use ecoblock_gossip::node::gossip_node::GossipNode;
+use ecoblock_gossip::node::GossipNode;
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 
