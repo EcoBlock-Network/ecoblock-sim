@@ -3,7 +3,6 @@ use ecoblock_crypto::keys::keypair::CryptoKeypair;
 use ecoblock_sim::simulation::{engine::SimulationEngine, scenario::SimulationScenario};
 use ecoblock_storage::tangle::block::TangleBlock;
 
-/// 🔁 Crée une topologie linéaire A → B → C
 fn build_linear_topology() -> SimulationScenario {
     let mut scenario = SimulationScenario::new("Linear topology");
     scenario.add_node("A");
@@ -14,7 +13,6 @@ fn build_linear_topology() -> SimulationScenario {
     scenario
 }
 
-/// 🔁 Crée une topologie en anneau : A → B → C → A
 fn build_ring_topology() -> SimulationScenario {
     let mut scenario = SimulationScenario::new("Ring topology");
     scenario.add_node("A");
@@ -26,7 +24,6 @@ fn build_ring_topology() -> SimulationScenario {
     scenario
 }
 
-/// ⭐ Crée une topologie étoile : A au centre
 fn build_star_topology() -> SimulationScenario {
     let mut scenario = SimulationScenario::new("Star topology");
     scenario.add_node("A");
@@ -39,7 +36,6 @@ fn build_star_topology() -> SimulationScenario {
     scenario
 }
 
-/// 🌐 Crée une topologie en mesh complet : tous connectés à tous
 fn build_full_mesh_topology() -> SimulationScenario {
     let nodes = ["A", "B", "C", "D"];
     let mut scenario = SimulationScenario::new("Full mesh topology");
@@ -59,7 +55,6 @@ fn build_full_mesh_topology() -> SimulationScenario {
     scenario
 }
 
-/// 🌲 Crée une topologie arborescente simple
 fn build_tree_topology() -> SimulationScenario {
     let mut scenario = SimulationScenario::new("Tree topology");
     scenario.add_node("Root");
@@ -88,18 +83,25 @@ fn main() {
 
     let block = TangleBlock::new(data, &keypair);
 
-    let mut scenarios = vec![
+    let scenarios = vec![
         build_linear_topology(),
         build_ring_topology(),
         build_star_topology(),
         build_full_mesh_topology(),
         build_tree_topology(),
     ];
-
-    for scenario in scenarios.iter_mut() {
-        println!("🎬 Running simulation: {}", scenario.name);
-        SimulationEngine::run(scenario, block.clone(), "A");
-        println!("✅ Simulation complete: {}", scenario.name);
+    
+    for mut scenario in scenarios {
+        println!("Running simulation: {}", scenario.name);
+        
+        let start_node = if scenario.name == "Tree topology" {
+            "Root"
+        } else {
+            "A"
+        };
+        
+        SimulationEngine::run(&mut scenario, block.clone(), start_node);
+        println!("Simulation complete: {}", scenario.name);
         println!("---------------------------\\n");
     }
 }
